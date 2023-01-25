@@ -6,6 +6,7 @@ services:
     build:
       context: ./node
     container_name: node
+    entrypoint: wait-for-it.sh db:3306 -t 30 -- node index.js
     networks:
       - node-network
     volumes:
